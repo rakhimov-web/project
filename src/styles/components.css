@@ -742,3 +742,11 @@
 .design-root .lg-input input {
   font-weight: var(--weight-regular);
 }
+/* Keep icon-only targets stable inside narrow flex rows. */
+.design-root .lg-button[data-icon="only"] {
+  min-width: var(--touch);
+  flex-shrink: 0;
+}
+.skeleton-group {
+  position: relative;
+}

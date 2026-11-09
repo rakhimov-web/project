@@ -9,8 +9,8 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 export const metadata: Metadata = {
-  title: brand.name,
-  description: "AI va dasturlash kurslari — loyiha poydevori.",
+  title: brand.displayName,
+  description: "AI va dasturlash bo‘yicha amaliy video kurslar.",
 };
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

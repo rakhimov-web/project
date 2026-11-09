@@ -51,3 +51,7 @@ Unavailable-source findings from Step 0 still apply; no missing skill is claimed
 ## Step 2 application
 
 Named skill sources remain unavailable; no additional skill is claimed installed. Manually applied the native large-title/blur-header pattern, safe-area layout, haptic map, reduced-motion route transitions, grouped settings and Playwright browser automation pattern. Exact Telegram method signatures were read from @twa-dev/types 8.0.2; this is a type-only development dependency, not an alternative runtime SDK. Official docs/SDK fetches were denied by cloud egress policy, so current official changelog verification and real-client validation remain explicit pending checks in docs/TELEGRAM_TESTING.md. Read installed Next.js useRouter/template/error docs (including this version's retry error-boundary prop).
+
+## Step 3a application
+
+No change in unavailable named skill sources; no installation is claimed. Manually applied the frontend typography/spacing review, Apple TV billboard/shelf structure, single benefits-bento pattern, user-pausable marquee and reduced-motion-safe once-per-view list entrance. Haptics/Glisse adapters from Step 2 were reused. Rechecked installed Glisse prop types before using SegmentedControl and button states; used existing SVG/CSS/lucide primitives, not an invented package or copied branding. Browser/axe screenshot QA is recorded in PLANS.md.

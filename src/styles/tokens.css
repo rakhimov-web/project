@@ -272,3 +272,26 @@
     var(--tg-viewport-stable-height, 100dvh)
   );
 }
+/* Course artwork: original compositions derived from the existing iOS accent families. */
+:root {
+  --home-hero-fill: linear-gradient(
+    140deg,
+    #23225e 0%,
+    #353395 68%,
+    #5856d6 100%
+  );
+  --course-code-fill: linear-gradient(135deg, #123963, #0066d6);
+  --course-python-fill: linear-gradient(135deg, #0f4023, #176b32);
+  --course-prompt-fill: linear-gradient(135deg, #353395, #5856d6);
+  --course-workflow-fill: linear-gradient(135deg, #123963, #23558a);
+  --art-line: rgba(255, 255, 255, 0.3);
+  --art-core: rgba(255, 255, 255, 0.14);
+  --hero-action-ink: #23225e;
+  --home-hero-height: 21rem;
+  --home-hero-art: 15rem;
+  --course-card-width: 14.5rem;
+  --course-cover-height: 10rem;
+  --continue-card-width: 19rem;
+  --duration-marquee: 28000ms;
+  --duration-stagger: 45ms;
+}

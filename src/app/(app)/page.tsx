@@ -1,4 +1,9 @@
-import { StubScreen } from "@/components/shell/stub-screen";
+import { Suspense } from "react";
+import { HomeScreen, HomeSkeleton } from "@/components/home/home-screen";
 export default function Home() {
-  return <StubScreen kind="home" />;
+  return (
+    <Suspense fallback={<HomeSkeleton />}>
+      <HomeScreen />
+    </Suspense>
+  );
 }

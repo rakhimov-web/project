@@ -8,6 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import Link from "next/link";
+import { brand } from "@/config/brand";
 import { usePathname } from "next/navigation";
 import {
   ArrowLeft,
@@ -137,7 +138,7 @@ function ShellContent({ children }: { children: ReactNode }) {
                 <span className="brand-mark">
                   <Code2 aria-hidden="true" />
                 </span>
-                <span>AI & CODING</span>
+                <span>{brand.displayName}</span>
               </span>
             )}
             <span className="compact-title" aria-hidden="true">

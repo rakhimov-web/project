@@ -86,3 +86,19 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium pnpm test:dev
 The dev suite starts a separate dev server on port 3100. Run it after the production suite, not while building the same checkout. It exercises the actual dev mock and the framework's real route error boundary. Root smoke tests now cover the production anonymous shell rather than the Step 0 placeholder. Shell screenshots are under docs/screens/step-02.
 
 See docs/TELEGRAM_TESTING.md for exact HTTPS hosting/BotFather steps and the pending real-client acceptance checklist. Telegram documentation/SDK downloads were denied by this cloud's egress policy; current official changelog and real Telegram iOS/Android validation are not claimed complete.
+
+## Step 3a — Static Home
+
+The root route now contains the featured course billboard, labelled demo learning progress, a Glisse All/AI/Coding/Free filter, course shelves, a benefits bento and a pausable tool strip. Course cards/hero bookmarks share a repository-backed in-memory demo state; it survives app-route navigation and resets on a full reload. Open/continue actions go to the existing course/lesson stubs, which are built in later sub-steps.
+
+src/data/types.ts defines the domain-aligned view contract; src/data/mock/home.ts is the fixture; src/data/home.ts is the replaceable data-access boundary. Home does not import fixture data directly, call business APIs, trust Telegram identity or grant access. Prices are integer Stars and payments are disabled. Brand display/instructor fallbacks are centralized in src/config/brand.ts.
+
+Preview the loading, empty and error states at /?homeState=loading, /?homeState=empty and /?homeState=error. Retry recovers from the error preview using the same data-access path. Reduced motion or solid material disables the tool marquee; the normal animation has a Glisse pause control.
+
+Home screenshots: docs/screens/step-03a. To regenerate, run pnpm build and then:
+
+```sh
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium CAPTURE_HOME=1 pnpm exec playwright test tests/e2e/home.spec.ts
+```
+
+The earlier Step 2 screenshots are historical shell evidence. Set CAPTURE_SHELL=1 when intentionally regenerating those. Full customer UI approval still belongs to Step 4; the pending real Telegram checklist remains in docs/TELEGRAM_TESTING.md.

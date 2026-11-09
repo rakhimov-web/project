@@ -16,7 +16,10 @@ for (const colorScheme of ["light", "dark"] as const) {
       "browser",
     );
     await expect(
-      page.getByRole("heading", { name: "O‘rganish shu yerdan boshlanadi." }),
+      page.getByRole("heading", {
+        name: "AI bilan ilk mahsulotingiz",
+        level: 2,
+      }),
     ).toBeVisible();
     await expect(
       page.getByText("Brauzer ko‘rinishi · Profil uchun Telegram’da oching"),

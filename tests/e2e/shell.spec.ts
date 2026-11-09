@@ -28,7 +28,8 @@ for (const [width, height] of [
         );
         await expect(
           page.getByRole("heading", {
-            name: "O‘rganish shu yerdan boshlanadi.",
+            name: "AI bilan ilk mahsulotingiz",
+            level: 2,
           }),
         ).toBeVisible();
         await page.evaluate(() => document.fonts.ready);
@@ -54,7 +55,7 @@ for (const [width, height] of [
           );
         expect(tooSmall).toEqual([]);
         expect(errors).toEqual([]);
-        if (process.env.CAPTURE_SCREENS) {
+        if (process.env.CAPTURE_SHELL) {
           await mkdir("docs/screens/step-02", { recursive: true });
           await page.screenshot({
             path:
@@ -212,17 +213,17 @@ test("direct nested link Back has an in-app fallback and old clients avoid new m
 test("offline state restores without a reload", async ({ page, context }) => {
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: "O‘rganish shu yerdan boshlanadi." }),
+    page.getByRole("heading", { name: "AI bilan ilk mahsulotingiz", level: 2 }),
   ).toBeVisible();
   await context.setOffline(true);
   await expect(
     page.getByRole("heading", { name: "Internet aloqasi yo‘q" }),
   ).toBeVisible();
-  if (process.env.CAPTURE_SCREENS)
+  if (process.env.CAPTURE_SHELL)
     await page.screenshot({ path: "docs/screens/step-02/offline.png" });
   await context.setOffline(false);
   await expect(
-    page.getByRole("heading", { name: "O‘rganish shu yerdan boshlanadi." }),
+    page.getByRole("heading", { name: "AI bilan ilk mahsulotingiz", level: 2 }),
   ).toBeVisible();
 });
 
