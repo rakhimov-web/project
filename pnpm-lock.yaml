@@ -45,6 +45,9 @@ importers:
       '@tailwindcss/turbopack':
         specifier: ^4
         version: 4.3.5
+      '@twa-dev/types':
+        specifier: 8.0.2
+        version: 8.0.2
       '@types/node':
         specifier: ^24.19.2
         version: 24.19.2
@@ -845,6 +848,9 @@ packages:
 
   '@tailwindcss/turbopack@4.3.5':
     resolution: {integrity: sha512-0f0rOTyz4yGtPzpSiIP3ppAaYtMnQbGnEsHPGK4Yy8wNbE4xZWlNPjWtD6oyXvQZTg2N0XF4BZEhfsgvJe889g==}
+
+  '@twa-dev/types@8.0.2':
+    resolution: {integrity: sha512-ICQ6n4NaUPPzV3/GzflVQS6Nnu5QX2vr9OlOG8ZkFf3rSJXzRKazrLAbZlVhCPPWkIW3MMuELPsE6tByrA49qA==}
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -3229,6 +3235,8 @@ snapshots:
       '@tailwindcss/node': 4.3.5
       '@tailwindcss/oxide': 4.3.5
       tailwindcss: 4.3.5
+
+  '@twa-dev/types@8.0.2': {}
 
   '@types/chai@5.2.3':
     dependencies:

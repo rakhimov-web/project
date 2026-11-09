@@ -35,7 +35,13 @@ type Material = {
   setSolid: (solid: boolean) => void;
 };
 const MaterialContext = createContext<Material | null>(null);
-export function MaterialProvider({ children }: { children: ReactNode }) {
+export function MaterialProvider({
+  children,
+  forcedTheme,
+}: {
+  children: ReactNode;
+  forcedTheme?: "light" | "dark";
+}) {
   const system = useSyncExternalStore(
     subscribe,
     snapshot,
@@ -43,7 +49,8 @@ export function MaterialProvider({ children }: { children: ReactNode }) {
   ).split(",");
   const [themeOverride, setTheme] = useState<"light" | "dark">();
   const [solidOverride, setSolid] = useState(false);
-  const theme = themeOverride ?? (system[0] === "true" ? "dark" : "light");
+  const theme =
+    forcedTheme ?? themeOverride ?? (system[0] === "true" ? "dark" : "light");
   const solid = solidOverride || system[1] === "true";
   const reducedMotion = system[2] === "true";
   return (

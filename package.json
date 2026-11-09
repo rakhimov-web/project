@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/check-production.mjs",
     "start": "next start",
     "lint": "eslint . && node scripts/check-design.mjs",
     "typecheck": "next typegen && tsc --noEmit",
@@ -13,7 +13,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky",
-    "lint:design": "node scripts/check-design.mjs"
+    "lint:design": "node scripts/check-design.mjs",
+    "test:dev": "playwright test -c playwright.dev.config.ts"
   },
   "dependencies": {
     "@fontsource-variable/inter": "5.3.0",
@@ -30,6 +31,7 @@
     "@axe-core/playwright": "4.14.0",
     "@playwright/test": "1.65.0",
     "@tailwindcss/turbopack": "^4",
+    "@twa-dev/types": "8.0.2",
     "@types/node": "^24.19.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",

@@ -1,10 +1,10 @@
 # AI & Coding Courses — Telegram Mini App
 
-Step 0 foundation: Next.js App Router, React, strict TypeScript, Tailwind, pnpm, ESLint/Prettier, Husky/lint-staged, Vitest, Playwright and axe. Customer screens, Telegram integration, backend and payments are intentionally scheduled for later steps. The current page is a static scaffold.
+Current foundation: Next.js App Router, React, strict TypeScript, Tailwind, pnpm, ESLint/Prettier, Husky/lint-staged, Vitest, Playwright and axe. Step 1 supplies the design system/gallery; Step 2 adds the Telegram-aware shell and static customer route placeholders. Full customer screens, authentication, backend and payments remain in later phases.
 
 ## Development
 
-Use Node 24 (Active LTS) and pnpm 11.25.0 (`corepack enable` if pnpm is not already installed).
+Use Node 24 (LTS) and pnpm 11.25.0 (`corepack enable` if pnpm is not already installed).
 
 ```sh
 cd /workspace/project
@@ -67,3 +67,22 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium CAPTURE_SCREENS=1 pnpm tes
 ```
 
 Images are retained under `docs/screens/step-01/`. On systems using Playwright's downloaded browser, omit the executable override. Browser tests check controls, keyboard navigation, focus, range values, sheet return focus, named error fields, disabled groups, both themes, minimum targets, overflow, axe and forced material/motion preferences. Real Telegram/Android device behavior is not certified by this browser gallery.
+
+## Step 2 — Telegram shell
+
+The customer shell lives under the (app) route group. Available stubs: /, /courses, /courses/ai-basics, /learning, /lessons/first-lesson, /profile, /profile/settings, /checkout, /onboarding, /legal/privacy and /legal/terms. The design specimen remains outside the shell at /dev/gallery.
+
+The official Telegram script loads only for a Telegram launch context; production browser visits get an anonymous preview, never the dev user. pnpm dev supplies a clearly labelled, in-memory mock outside Telegram. The build checks that mock and dev crash-probe code are absent from server/static JavaScript. No initData is sent to a backend, persisted as auth, or treated as verified identity.
+
+The bridge guards optional APIs by version and method availability, synchronizes our palette with native bars, handles stable height/system/content insets, binds and cleans up host Back, and scopes vertical swipe suppression to open sheets. Profile → Sozlamalar controls haptics for the current app session. Fullscreen is off. Motion reads the shared CSS spring tokens, renders one active route pane and respects reduced motion.
+
+Additional checks:
+
+```sh
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium CAPTURE_SCREENS=1 pnpm exec playwright test tests/e2e/shell.spec.ts
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium pnpm test:dev
+```
+
+The dev suite starts a separate dev server on port 3100. Run it after the production suite, not while building the same checkout. It exercises the actual dev mock and the framework's real route error boundary. Root smoke tests now cover the production anonymous shell rather than the Step 0 placeholder. Shell screenshots are under docs/screens/step-02.
+
+See docs/TELEGRAM_TESTING.md for exact HTTPS hosting/BotFather steps and the pending real-client acceptance checklist. Telegram documentation/SDK downloads were denied by this cloud's egress policy; current official changelog and real Telegram iOS/Android validation are not claimed complete.

@@ -94,3 +94,15 @@ Before a new screen, read this file, tokens.css, AGENTS.md and the current plan.
 | No public spring/reduced-motion configuration                          | Glisse springs honor reduced motion natively; CSS additionally suppresses decorative lens/morph motion                         |
 | No image fallback orchestration                                        | Initials Avatar now; Telegram-photo integration later                                                                          |
 | No tablet/desktop admin layouts                                        | Later admin phase uses the same tokens with the documented macOS/iPadOS structural patterns                                    |
+
+## Step 2 — Shell implementation notes
+
+The customer route group has a persistent TelegramProvider, material provider and navigation context. The large-title header collapses by actual element geometry; the compact toolbar is sticky and respects reduced transparency. Glisse TabBar uses real Next links and aria-current, while root tabs omit a Back button. Nested direct links have in-app parent fallbacks.
+
+System/content safe-area maxima are evaluated on the shell where host CSS variables are inherited; system top plus content top and system bottom plus content bottom reserve their respective chrome. Viewport height uses the validated stable host height, then Telegram's stable-height variable, then dvh. Only the central main pane scrolls; the dock remains in its own layout row. The dock's original indigo/blue material background gives glass rich content to refract.
+
+RouteFrame reads spring stiffness/damping/mass and 32px travel from CSS tokens. Push/pop directions use interruptible Motion entry transitions with one active route pane. The previous pane is removed immediately: retaining Next router slots for exit animation duplicated the newly resolved content, so it is intentionally not done. Focus moves to the new screen heading and scroll position resets. OS reduced motion disables these transitions.
+
+App buttons call the shared, version-gated haptic map on interaction only. Navigation uses selection feedback. Haptics can be turned off in Profile → Sozlamalar. Native Main/Secondary buttons remain hidden until the checkout phase. Fullscreen is deliberately never requested. Vaul sheets suspend vertical swipes only while open, restore the previous setting, and take precedence over route Back.
+
+Browser dev mode is labelled, in-memory and compiled out of production. Production outside Telegram has no fake profile. Unsafe Telegram user data is presentation-only, not an auth/session/role. Photo rendering, all customer screen content and persistent identity arrive in their assigned later steps. SDK loading errors have a retry state; offline state resumes after a connection returns. These browser checks do not certify a real Telegram client; see docs/TELEGRAM_TESTING.md.

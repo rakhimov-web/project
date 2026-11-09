@@ -48,12 +48,15 @@ export function Badge({
 }) {
   return <span className={"badge badge-" + tone}>{children}</span>;
 }
-export function Avatar({ name }: { name: string }) {
-  const initials = name
+export function initialsFor(name: string) {
+  return name
     .split(/\s+/)
     .slice(0, 2)
     .map((part) => part.charAt(0))
     .join("");
+}
+export function Avatar({ name }: { name: string }) {
+  const initials = initialsFor(name);
   return (
     <span className="avatar" role="img" aria-label={name}>
       {initials}

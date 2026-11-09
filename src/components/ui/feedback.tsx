@@ -1,5 +1,7 @@
 "use client";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import { useOptionalTelegram } from "@/lib/telegram/provider";
+import { suspendVerticalSwipes } from "@/lib/telegram/bridge";
 import { Drawer } from "vaul";
 import { Toaster, toast } from "sonner";
 import { X } from "lucide-react";
@@ -38,8 +40,21 @@ export function Sheet({
   children: ReactNode;
 }) {
   const { theme, solid } = useMaterial();
+  const telegram = useOptionalTelegram();
+  const app = telegram?.app;
+  const registerOverlayBack = telegram?.registerOverlayBack;
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const restore = suspendVerticalSwipes(app ?? null);
+    const unregister = registerOverlayBack?.(() => setOpen(false));
+    return () => {
+      restore();
+      unregister?.();
+    };
+  }, [open, app, registerOverlayBack]);
   return (
-    <Drawer.Root>
+    <Drawer.Root open={open} onOpenChange={setOpen}>
       <Drawer.Trigger asChild>{trigger}</Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="sheet-overlay" />

@@ -47,3 +47,7 @@ Cloned `/tmp/ios-design-md` successfully, commit `5d3aeca239caef3ea4080034eb22ab
 ## Step 1 application
 
 Unavailable-source findings from Step 0 still apply; no missing skill is claimed installed. Manually applied native layout/type hierarchy, grouped settings rows, reduced-motion-safe material fallback and Playwright/axe visual QA patterns. No Telegram haptics or admin behavior implemented early. Read all six framework-neutral design packs for structural inspiration and the Telegram SwiftUI behavior sample. Installed Glisse 0.5.0 and read its README, full exports/types and relevant implementation before use; checked Vaul and Sonner installed types. No guessed exports.
+
+## Step 2 application
+
+Named skill sources remain unavailable; no additional skill is claimed installed. Manually applied the native large-title/blur-header pattern, safe-area layout, haptic map, reduced-motion route transitions, grouped settings and Playwright browser automation pattern. Exact Telegram method signatures were read from @twa-dev/types 8.0.2; this is a type-only development dependency, not an alternative runtime SDK. Official docs/SDK fetches were denied by cloud egress policy, so current official changelog verification and real-client validation remain explicit pending checks in docs/TELEGRAM_TESTING.md. Read installed Next.js useRouter/template/error docs (including this version's retry error-boundary prop).
