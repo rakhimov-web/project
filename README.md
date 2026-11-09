@@ -53,3 +53,17 @@ Browser tests start the production server themselves; stop any process using por
 Design packs: `git clone --depth 1 https://github.com/Meliwat/awesome-ios-design-md.git /tmp/ios-design-md`. If already present, inspect and reuse; never blindly overwrite it. Full DESIGN.md composition and Glisse 0.5.0 gallery are Step 1. Static UI approval at Step 4 gates backend development. Digital course payments will use Telegram Stars only, after current official documentation is checked.
 
 Production deployment, domain, BotFather, Neon and secret setup belong to later steps. There is no production deployment yet.
+
+## Step 1 — Design foundation
+
+Open the local application's `/dev/gallery` route after `pnpm dev`. The gallery demonstrates all nine actual Glisse 0.5.0 exports, shared primitives, themes, disabled/loading/empty/error states, a Vaul sheet and Sonner feedback. Nothing calls a backend. Use the moon/sun control to switch theme; “Solid material” demonstrates the fallback, and OS reduced-transparency takes precedence.
+
+`DESIGN.md` explains the nine-part system and known vendor limits; `src/styles/tokens.css` holds values. `pnpm lint` includes `lint:design`, which rejects source hex colors outside tokens and untokenized CSS radius/shadow/motion values. Dependencies' styles are third-party code and are not rewritten.
+
+Regenerate the six mobile screenshots and overlay samples:
+
+```sh
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium CAPTURE_SCREENS=1 pnpm test:e2e
+```
+
+Images are retained under `docs/screens/step-01/`. On systems using Playwright's downloaded browser, omit the executable override. Browser tests check controls, keyboard navigation, focus, range values, sheet return focus, named error fields, disabled groups, both themes, minimum targets, overflow, axe and forced material/motion preferences. Real Telegram/Android device behavior is not certified by this browser gallery.

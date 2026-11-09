@@ -14,3 +14,16 @@ Remote completion: foundation commit 17ba354 pushed to origin/main with tag step
 
 1 design tokens/gallery; 2 Telegram shell; 3a–h static customer screens; 4 visual approval gate; 5 database; 6 auth; 7 admin; 8 real data; 9 Stars; 10 video; 11 hardening; 12 launch.
 Stop after each step. Backend remains blocked until explicit UI approval at Step 4.
+
+## Step 1 — Design foundation (implementation and local verification complete)
+
+Goal: one iOS palette and reusable accessible primitives, with the exact Glisse 0.5.0 controls demonstrated at /dev/gallery.
+Files: DESIGN.md, tokens/styles, UI primitives and Glisse adapters, gallery, lint guard and tests, six mobile screenshots.
+Acceptance: all shipped Glisse controls exercised; light/dark, keyboard, disabled/loading/empty/error and solid fallback states; lint/typecheck/unit/build/browser checks; inspect six mobile screenshots; commit/tag/push.
+Risks: pre-1.0 Glisse accessibility/API limitations must be verified from installed types/source and corrected in adapters where possible. No backend or Telegram shell in this step. Named unavailable skills use documented manual patterns.
+
+Validation: frozen-lockfile install, formatting, lint/design guard, strict typecheck, 3 unit tests, production build and 12 Chromium browser tests passed. Browser checks include all six mobile/theme combinations, axe on gallery/menu/sheet, minimum 44px targets, no horizontal overflow, keyboard selection/focus, slider/search behavior, disabled/busy states, sheet focus return and OS motion/transparency plus unsupported-backdrop fallback. Six full-page mobile screenshots and menu/sheet samples saved in docs/screens/step-01 and visually inspected. Fixed avatar sizing, selected-tab readable tint, dark skeleton visibility, busy-button fill and compiled backdrop fallback ordering. Normal and reduced modes retain actual Glisse components.
+
+Design audit: no source raw hex outside tokens.css; no app-owned raw radius/shadow/duration values. Shared palette/type/motion/z-index tokens intentionally include roles reserved for future screens; vendor geometry/internal physics remain third-party implementation. Inter is bundled locally; no external fonts or backend calls. Glisse springs were confirmed to snap when OS reduced motion is enabled. Unsupported/reduced-transparency forces solid material and explains why its switch is disabled. Real Telegram and mid-range Android measurements remain scheduled for Steps 2/4.
+
+Delivery: Conventional Commit and tag step-01; push to origin/main. Remote revision/CI outcome is recorded in the task report. Stop here; Step 2 requires “davom et”.

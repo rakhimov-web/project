@@ -1,19 +1,67 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 @import "../styles/tokens.css";
+@import "../styles/components.css";
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
-  background: var(--background);
+  background: var(--grouped);
   color: var(--foreground);
   font-family: var(--font-system);
-  font-size: var(--type-body);
-  line-height: var(--line-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
 }
-main {
-  padding: var(--space-page);
+button,
+input {
+  font: inherit;
 }
-h1 {
-  font-size: var(--type-title);
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
 }
+button {
+  touch-action: manipulation;
+}
+button,
+[role="tab"],
+[role="radio"] {
+  -webkit-user-select: none;
+  user-select: none;
+}
+:focus-visible {
+  outline: var(--focus-width) solid var(--accent-text);
+  outline-offset: var(--focus-offset);
+}
+h1,
+h2,
+h3,
 p {
-  margin-block: var(--space-block);
+  margin: 0;
+}
+a {
+  color: var(--accent-text);
+}
+svg {
+  flex-shrink: 0;
+}
+::selection {
+  background: var(--selection);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: var(--duration-instant) !important;
+    transition-duration: var(--duration-instant) !important;
+    scroll-behavior: auto !important;
+  }
 }

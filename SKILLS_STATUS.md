@@ -43,3 +43,7 @@ cloud-environment-onboarding:setup and cloud-environment-runtime were read for e
 ## Design source
 
 Cloned `/tmp/ios-design-md` successfully, commit `5d3aeca239caef3ea4080034eb22ab87cc77fa24`. Read relevant packs before Step 1 design composition. Glisse 0.5.0 npm metadata checked: React / React DOM >=18. No Glisse APIs assumed in Step 0.
+
+## Step 1 application
+
+Unavailable-source findings from Step 0 still apply; no missing skill is claimed installed. Manually applied native layout/type hierarchy, grouped settings rows, reduced-motion-safe material fallback and Playwright/axe visual QA patterns. No Telegram haptics or admin behavior implemented early. Read all six framework-neutral design packs for structural inspiration and the Telegram SwiftUI behavior sample. Installed Glisse 0.5.0 and read its README, full exports/types and relevant implementation before use; checked Vaul and Sonner installed types. No guessed exports.
