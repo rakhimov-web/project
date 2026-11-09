@@ -1,0 +1,19 @@
+:root {
+  color-scheme: light dark;
+  --background: #ffffff;
+  --foreground: #000000;
+  --font-system:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter,
+    system-ui, sans-serif;
+  --space-page: 2rem;
+  --space-block: 1rem;
+  --type-title: 2.125rem;
+  --type-body: 1.0625rem;
+  --line-body: 1.5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ffffff;
+  }
+}
